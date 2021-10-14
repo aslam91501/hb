@@ -1,10 +1,11 @@
-package com.hotelbooking.api.service;
+package com.hotelbooking.api.service.implementation;
 
 import java.util.List;
 import java.util.Optional;
 
 import com.hotelbooking.api.entity.Guest;
 import com.hotelbooking.api.repository.GuestRepository;
+import com.hotelbooking.api.service.GuestService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,23 +16,23 @@ public class GuestServiceImplementation implements GuestService{
     private GuestRepository guestRepository;
 
     @Override
-    public List<Guest> getAllGuests(){
+    public List<Guest> getAll(){
         List<Guest> guests = guestRepository.findAll();
         return guests;
     }
 
     @Override
-    public void createGuest(Guest guest){
+    public void create(Guest guest){
         guestRepository.save(guest);
     }
 
     @Override
-    public Guest findGuestByPhoneNumber(String phoneNumber) {
+    public Guest getByPhoneNumber(String phoneNumber) {
         return guestRepository.findByPhoneNumber(phoneNumber);
     }
 
     @Override
-    public void updateGuest(Guest guest) {
+    public void update(Guest guest) {
         Optional<Guest> guestData = guestRepository.findById(guest.getId());        
 
         if(guestData.isPresent()){
@@ -53,12 +54,12 @@ public class GuestServiceImplementation implements GuestService{
 
 
     @Override
-    public Guest findById(Long id) {
+    public Guest get(Long id) {
         return guestRepository.findById(id).get();
     }
 
     @Override
-    public void deleteGuest(Long id) {
+    public void delete(Long id) {
         if(guestRepository.existsById(id))
             guestRepository.deleteById(id);   
     }
