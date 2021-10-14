@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "feature")
-public class Feature {
+@Table(name = "room_feature")
+public class RoomFeature {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "feature_id")

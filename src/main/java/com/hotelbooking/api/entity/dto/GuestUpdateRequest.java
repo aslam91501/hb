@@ -7,13 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class GuestCreateRequest {
+public class GuestUpdateRequest {
+    @NotNull
+    private Long id;
     private String firstName;
-
-    @NotNull
     private String lastName;
-    
-    @NotNull
     private String phoneNumber;
 }
-

@@ -48,5 +48,5 @@ public class Room {
         joinColumns = @JoinColumn(name="room_id"),
         inverseJoinColumns = @JoinColumn(name="feature_id")
     )
-    private Set<Feature> features;
+    private Set<RoomFeature> features;
 }

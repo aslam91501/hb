@@ -6,6 +6,7 @@ import java.util.List;
 import com.hotelbooking.api.entity.Guest;
 import com.hotelbooking.api.entity.dto.GuestCreateRequest;
 import com.hotelbooking.api.entity.dto.GuestResponse;
+import com.hotelbooking.api.entity.dto.GuestUpdateRequest;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
@@ -51,6 +52,19 @@ public class MapStructMapperImplementation implements MapStructMapper {
         }
 
         return guestResponseDTOs;
+    }
+
+    @Override
+    public Guest GuestUpdateRequest_Guest(GuestUpdateRequest guestUpdateRequest) {
+        Guest guest = new Guest();
+        
+        guest.setId(guestUpdateRequest.getId());
+
+        if(guestUpdateRequest.getFirstName() != null) guest.setFirstName(guestUpdateRequest.getFirstName());
+        if(guestUpdateRequest.getLastName() != null) guest.setLastName(guestUpdateRequest.getLastName());
+        if(guestUpdateRequest.getPhoneNumber() != null) guest.setPhoneNumber(guestUpdateRequest.getPhoneNumber());
+
+        return guest;
     }
     
 }
