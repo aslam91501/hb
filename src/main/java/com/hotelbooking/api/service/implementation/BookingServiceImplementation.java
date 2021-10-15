@@ -52,6 +52,7 @@ public class BookingServiceImplementation implements BookingService{
             if(booking.getGuest() != null && booking.getGuest() != _booking.getGuest())
                 _booking.setGuest(booking.getGuest());
 
+            bookingRepository.save(_booking);
         }
     }
 
